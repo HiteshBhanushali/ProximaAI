@@ -1,0 +1,22 @@
+{
+  "node": {
+    "fc6b50b88431857995e1a87d40590041300650b2": {
+      "workers": {
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CHITESH%20BHANUSHALI%5C%5COneDrive%5C%5CDocuments%5C%5CFinal%20working%20web%20project%5C%5CProxima%20AI%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions%5C%5CinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/dashboard/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CHITESH%20BHANUSHALI%5C%5COneDrive%5C%5CDocuments%5C%5CFinal%20working%20web%20project%5C%5CProxima%20AI%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions%5C%5CinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/dashboard/question/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CHITESH%20BHANUSHALI%5C%5COneDrive%5C%5CDocuments%5C%5CFinal%20working%20web%20project%5C%5CProxima%20AI%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions%5C%5CinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/dashboard/aptitude/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CHITESH%20BHANUSHALI%5C%5COneDrive%5C%5CDocuments%5C%5CFinal%20working%20web%20project%5C%5CProxima%20AI%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions%5C%5CinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!",
+        "app/dashboard/projects/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5CHITESH%20BHANUSHALI%5C%5COneDrive%5C%5CDocuments%5C%5CFinal%20working%20web%20project%5C%5CProxima%20AI%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions%5C%5CinvalidateCache.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/dashboard/page": "action-browser",
+        "app/dashboard/question/page": "action-browser",
+        "app/dashboard/aptitude/page": "action-browser",
+        "app/dashboard/projects/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "sQmAJXzZx7bunwZLz5JoCF4B4yGXdUWeI4JdSPt9VMM="
+}

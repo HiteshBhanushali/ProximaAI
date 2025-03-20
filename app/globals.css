@@ -1,0 +1,2698 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 262.1 83.3% 57.8%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 20% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 20% 98%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 210 20% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 263.4 70% 50.4%;
+    --accent-foreground: 210 20% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 20% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 20% 98%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Base animations */
+.animate-in {
+  animation: animate-in 0.5s ease-out;
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover animations */
+.hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+/* Button animations */
+.button-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(var(--primary), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0);
+  }
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
+
+/* Card Animations */
+.card, .rounded-lg {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Consistent Text Colors */
+.text-primary {
+  color: #2563eb;
+}
+
+.text-secondary {
+  color: #4b5563;
+}
+
+.text-accent {
+  color: #8b5cf6;
+}
+
+/* Loading animations */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modern Transitions and Animations */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Interactive Elements */
+button, a, .cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+button:hover, a:hover, .cursor-pointer:hover {
+  transform: scale(1.02);
+}
